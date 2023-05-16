@@ -10,7 +10,7 @@ export default function AppNavigator () {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={LoadingScreen} />
+                <Stack.Screen name="Home" component={SignupScreen} />
                 <Stack.Screen name="signup" component={SignupScreen} />
             </Stack.Navigator>
         </NavigationContainer>
