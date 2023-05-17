@@ -35,6 +35,7 @@ const SigninScreen = () => {
           <Text style={{textAlign: 'center'}}>Log In with Google</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.inputContainer}>
+        <Image source={require('../../assets/Facebook.png')} style={{width: 15, height: 15, marginRight: 20}}></Image>
           <Text>Log In with Facebook</Text>
         </TouchableOpacity>
         

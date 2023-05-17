@@ -14,7 +14,7 @@ export default function AppNavigator () {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={PaymentSuccessScreen} />
+                <Stack.Screen name="Home" component={SigninScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
