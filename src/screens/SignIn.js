@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 import { TouchableOpacity, TextInput } from "react-native-web";
 import { Feather } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
@@ -30,9 +30,13 @@ const SigninScreen = () => {
         <View style={styles.welcome}>
           <Text>OR</Text>
         </View>
-          <Text>Log In with Google</Text>
-        
+        <TouchableOpacity style={styles.inputContainer}>
+          <Image source={require('../../assets/google.png')} style={{width: 15, height: 15, marginRight: 20}}></Image>
+          <Text style={{textAlign: 'center'}}>Log In with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.inputContainer}>
           <Text>Log In with Facebook</Text>
+        </TouchableOpacity>
         
         <Text style={styles.welcome}>
            <Text style={styles.white}>Forgot Password?</Text>
