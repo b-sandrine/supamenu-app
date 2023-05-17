@@ -8,6 +8,7 @@ import SigninScreen from "./screens/SignIn";
 import SearchScreen from "./screens/SearchScreen";
 import FeedbackScreen from "./screens/FeedbackScreen";
 import PaymentSuccessScreen from "./screens/PaymentSuccessScreen";
+import MenuScreen from "./screens/MenuScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export default function AppNavigator () {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Home" component={MenuScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
