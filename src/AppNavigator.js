@@ -8,13 +8,14 @@ import SigninScreen from "./screens/SignIn";
 import SearchScreen from "./screens/SearchScreen";
 import FeedbackScreen from "./screens/FeedbackScreen";
 import PaymentSuccessScreen from "./screens/PaymentSuccessScreen";
+
 const Stack = createStackNavigator();
 
 export default function AppNavigator () {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={SigninScreen} />
+                <Stack.Screen name="Home" component={HomeScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
