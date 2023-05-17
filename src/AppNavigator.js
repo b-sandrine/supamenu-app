@@ -9,6 +9,7 @@ import SearchScreen from "./screens/SearchScreen";
 import FeedbackScreen from "./screens/FeedbackScreen";
 import PaymentSuccessScreen from "./screens/PaymentSuccessScreen";
 import MenuScreen from "./screens/MenuScreen";
+import MenuOrderedScreen from "./screens/MenuOrderedScreen";
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ export default function AppNavigator () {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={MenuScreen} />
+                <Stack.Screen name="Home" component={MenuOrderedScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
