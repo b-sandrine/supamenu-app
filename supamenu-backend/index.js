@@ -1,1 +1,25 @@
-console.log('Hello, Backend!')
+const express = require('express')
+const { graphqlHTTP } = require('express-graphql')
+const { buildSchema } = require('graphql')
+
+const schema = buildSchema(`
+    type Query {
+        hello: String
+    }
+`);
+
+const root = {
+    hello: () => 'Hello, World!'
+};
+
+const app = express();
+
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true
+}));
+
+app.listen(3000, () => {
+    console.log('GraphQL server running on port http://localhost:3000')
+})
