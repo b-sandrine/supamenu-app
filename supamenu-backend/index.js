@@ -1,6 +1,6 @@
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
-const { GraphQLObjectType, GraphQLNonNull, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema } = require('graphql')
+const { GraphQLObjectType, GraphQLNonNull, GraphQLInt, GraphQLString, GraphQLList, GraphQLSchema, GraphQLUnionType } = require('graphql')
 
 var Suppliers = [ 
     {id: 1, name: 'Nyirangarama'},
@@ -47,6 +47,14 @@ const RootQueryType = new GraphQLObjectType({
             description: 'List of all manufactures',
             resolve: () => Suppliers
         },
+        getSupplier : {
+            type: suppliersType,
+            description: 'A single supplier record',
+            args : {
+                id: { type: GraphQLInt}
+            },
+            resolve: (parent, args) => Suppliers.find((Supplier => Supplier.id === args.id))
+        },
         getDrinks: {
             type: new GraphQLList(drinksType),
             description: 'List of all drinks',
@@ -59,14 +67,6 @@ const RootQueryType = new GraphQLObjectType({
                 id: {type: GraphQLInt}
             },
             resolve: (parent, args) => Drinks.find((website => website.id === args.id))
-        },
-        getSupplier : {
-            type: suppliersType,
-            description: 'A single supplier record',
-            args : {
-                id: { type: GraphQLInt}
-            },
-            resolve: (parent, args) => Suppliers.find((Supplier => Supplier.id === args.id))
         }
     })
 })
@@ -79,13 +79,24 @@ const RootMutationType = new GraphQLObjectType({
             type: suppliersType,
             description: 'Add a new supplier',
             args: {
-                name: {type: GraphQLNonNull(GraphQLString)},
-                ownerId: { type: GraphQLNonNull(GraphQLInt)}
+                name: {type: GraphQLNonNull(GraphQLString)}
             } ,
             resolve: (parent, args) => {
-                const newSupplier = { id: Suppliers.length + 1, name: args.name, ownerId: args.ownerId}
+                const newSupplier = { id: Suppliers.length + 1, name: args.name}
                 Suppliers.push(newSupplier)
                 return newSupplier
+            }
+        },
+        updateSupplier: {
+            type: suppliersType,
+            description: 'Update a supplier',
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLInt)},
+                name: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve: (parent, args) => {
+                Suppliers[args.id - 1].name = args.name
+                return Suppliers[args.id - 1]
             }
         },
         removeSupplier: {
@@ -99,18 +110,45 @@ const RootMutationType = new GraphQLObjectType({
                 return Suppliers[args.id]
             }
         },
-        updateSupplier: {
-            type: suppliersType,
-            description: 'Update a supplier',
+        addDrink: {
+            type: drinksType,
+            description: 'Adding a single drink',
             args: {
-                id: {type: new GraphQLNonNull(GraphQLInt)},
-                name: {type: new GraphQLNonNull(GraphQLString)},
-                ownerId: { type: new GraphQLNonNull(GraphQLInt)}
+               name: { type: new GraphQLNonNull(GraphQLString)},
+               type: { type: GraphQLString},
+               ownerId: { type: new GraphQLNonNull(GraphQLInt)}
             },
             resolve: (parent, args) => {
-                Suppliers[args.id - 1].name = args.name
-                Suppliers[args.id - 1].ownerId = args.ownerId
-                return Suppliers[args.id - 1]
+                const newDrink = { id: Drinks.length + 1, name: args.name, type: args.type, ownerId: args.ownerId}
+                Drinks.push(newDrink)
+                return newDrink
+            }
+        },
+        updateDrink: {
+            type: drinksType,
+            description: 'Updating an existing drink',
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLInt)},
+                name: { type: new GraphQLNonNull(GraphQLString)},
+                type: { type: new GraphQLNonNull(GraphQLString)},
+                ownerId: {type: new GraphQLNonNull(GraphQLInt)}
+            },
+            resolve: (parent, args) => {
+                Drinks[args.id - 1].name = args.name
+                Drinks[args.id -1].type = args.type
+                Drinks[args.id - 1].ownerId = args.ownerId
+                return Drinks[args.id - 1] 
+            }
+        },
+        removeDrink: {
+            type: drinksType,
+            description: 'Operation to remove a drink',
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLInt)}
+            },
+            resolve: (parent, args) => {
+                Drinks = Drinks.filter(drink => drink.id !== args.id)
+                return Drinks[args.id]
             }
         }
     })
