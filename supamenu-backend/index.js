@@ -42,21 +42,83 @@ const RootQueryType = new GraphQLObjectType({
     name: 'Query',
     description: "Root Query",
     fields: () => ({
-        Suppliers : {
+        getSuppliers : {
             type: new GraphQLList(suppliersType),
             description: 'List of all manufactures',
             resolve: () => Suppliers
         },
-        Drinks: {
+        getDrinks: {
             type: new GraphQLList(drinksType),
             description: 'List of all drinks',
             resolve: () => Drinks
+        },
+        getDrink: {
+            type: drinksType,
+            description: 'A single drink',
+            args: {
+                id: {type: GraphQLInt}
+            },
+            resolve: (parent, args) => Drinks.find((website => website.id === args.id))
+        },
+        getSupplier : {
+            type: suppliersType,
+            description: 'A single supplier record',
+            args : {
+                id: { type: GraphQLInt}
+            },
+            resolve: (parent, args) => Suppliers.find((Supplier => Supplier.id === args.id))
+        }
+    })
+})
+
+const RootMutationType = new GraphQLObjectType({
+    name: 'Mutation',
+    description: 'Root Mutation',
+    fields: () => ({
+        addSupplier: {
+            type: suppliersType,
+            description: 'Add a new supplier',
+            args: {
+                name: {type: GraphQLNonNull(GraphQLString)},
+                ownerId: { type: GraphQLNonNull(GraphQLInt)}
+            } ,
+            resolve: (parent, args) => {
+                const newSupplier = { id: Suppliers.length + 1, name: args.name, ownerId: args.ownerId}
+                Suppliers.push(newSupplier)
+                return newSupplier
+            }
+        },
+        removeSupplier: {
+            type: suppliersType,
+            description: 'Remove a supplier',
+            args: {
+                id: {type: GraphQLNonNull(GraphQLInt)}
+            },
+            resolve: (parent, args) => {
+                Suppliers = Suppliers.filter(supplier => supplier.id !== args.id)
+                return Suppliers[args.id]
+            }
+        },
+        updateSupplier: {
+            type: suppliersType,
+            description: 'Update a supplier',
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLInt)},
+                name: {type: new GraphQLNonNull(GraphQLString)},
+                ownerId: { type: new GraphQLNonNull(GraphQLInt)}
+            },
+            resolve: (parent, args) => {
+                Suppliers[args.id - 1].name = args.name
+                Suppliers[args.id - 1].ownerId = args.ownerId
+                return Suppliers[args.id - 1]
+            }
         }
     })
 })
 
 const schema = new GraphQLSchema({
-    query: RootQueryType
+    query: RootQueryType,
+    mutation: RootMutationType
 })
 
 const app = express();
