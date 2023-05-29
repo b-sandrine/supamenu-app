@@ -3,7 +3,7 @@ import { TouchableOpacity, TextInput } from "react-native-web";
 import { Feather } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
-const SigninScreen = () => {
+const SigninScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
@@ -24,26 +24,42 @@ const SigninScreen = () => {
           <TextInput placeholder="Password" style={styles.input} />
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => {
+          navigation.navigate("dashboard")
+        }}>
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
         <View style={styles.welcome}>
           <Text>OR</Text>
         </View>
         <TouchableOpacity style={styles.inputContainer}>
-          <Image source={require('../../assets/google.png')} style={{width: 15, height: 15, marginRight: 20}}></Image>
-          <Text style={{textAlign: 'center'}}>Log In with Google</Text>
+          <Image
+            source={require("../../assets/google.png")}
+            style={{ width: 15, height: 15, marginRight: 20 }}
+          ></Image>
+          <Text style={{ textAlign: "center" }}>Log In with Google</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.inputContainer}>
-        <Image source={require('../../assets/Facebook.png')} style={{width: 15, height: 15, marginRight: 20}}></Image>
+          <Image
+            source={require("../../assets/Facebook.png")}
+            style={{ width: 15, height: 15, marginRight: 20 }}
+          ></Image>
           <Text>Log In with Facebook</Text>
         </TouchableOpacity>
-        
+
         <Text style={styles.welcome}>
-           <Text style={styles.white}>Forgot Password?</Text>
+          <Text style={styles.white}>Forgot Password?</Text>
         </Text>
         <Text style={styles.welcome}>
-          Don't have account? <Text style={styles.white}>Register</Text>
+          Don't have account?
+          <Text
+            style={styles.white}
+            onPress={() => {
+              navigation.navigate("sign up");
+            }}
+          >
+            Register
+          </Text>
         </Text>
       </View>
     </View>

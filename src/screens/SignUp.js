@@ -3,7 +3,7 @@ import { TouchableOpacity, TextInput } from "react-native-web";
 import { Feather } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.form}>
@@ -29,7 +29,7 @@ const SignupScreen = () => {
         </View>
 
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Proceed</Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate("sign in")}>Proceed</Text>
         </TouchableOpacity>
         <View style={styles.welcome}>
           <Text>OR</Text>
@@ -39,7 +39,7 @@ const SignupScreen = () => {
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
         <Text style={styles.welcome}>
-          Don't have account? <Text style={styles.white}>Register</Text>
+          Already have an account? <Text style={styles.white} onPress={() => navigation.navigate("sign in")}>Log In</Text>
         </Text>
       </View>
     </View>
