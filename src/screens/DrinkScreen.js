@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
   details: {
     marginLeft: "auto",
     width: 215,
+    height: 100,
   },
   text_black_0: {
     marginBottom: 5,
@@ -183,12 +184,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pricing_quantity_1: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
     textAlign: "center",
     width: 150,
+    height: 20,
+    marginTop: 10,
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -207,7 +209,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   pricing: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     marginLeft: "auto",

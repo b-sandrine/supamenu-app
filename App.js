@@ -11,6 +11,8 @@ import PaymentSuccessScreen from "./src/screens/PaymentSuccessScreen";
 import MenuScreen from "./src/screens/MenuScreen";
 import MenuOrderedScreen from "./src/screens/MenuOrderedScreen";
 import DrinkScreen from "./src/screens/DrinkScreen";
+import CheckoutCreditScreen from "./src/screens/CheckoutCreditScreen";
+import CheckoutMobileScreen from "./src/screens/CheckoutMobileScreen";
 import { useEffect, useState } from "react";
 
 const Stack = createStackNavigator();
@@ -30,6 +32,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="checkout mobile" component={CheckoutMobileScreen} />
+        <Stack.Screen name="checkout credit" component={CheckoutCreditScreen} />
         <Stack.Screen name="drinks" component={DrinkScreen} />
         <Stack.Screen name="sign in" component={SigninScreen} />
         <Stack.Screen name="sign up" component={SignupScreen} />
