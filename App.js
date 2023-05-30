@@ -10,11 +10,11 @@ import FeedbackScreen from "./src/screens/FeedbackScreen";
 import PaymentSuccessScreen from "./src/screens/PaymentSuccessScreen";
 import MenuScreen from "./src/screens/MenuScreen";
 import MenuOrderedScreen from "./src/screens/MenuOrderedScreen";
+import DrinkScreen from "./src/screens/DrinkScreen";
 import { useEffect, useState } from "react";
 
 const Stack = createStackNavigator();
 export default function App() {
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,14 +23,15 @@ export default function App() {
     }, 5000);
   }, []);
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+  // if (isLoading) {
+  //   return <LoadingScreen />;
+  // }
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="sign in" component={SigninScreen} />
+        <Stack.Screen name="drinks" component={DrinkScreen} />
+        <Stack.Screen name="sign in" component={SigninScreen} />
         <Stack.Screen name="sign up" component={SignupScreen} />
         <Stack.Screen name="dashboard" component={HomeScreen} />
         <Stack.Screen name="search" component={SearchScreen} />
@@ -43,5 +44,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-
