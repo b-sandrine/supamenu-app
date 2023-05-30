@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native-web";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleLeft, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const OrderTrackingScreen = () => {
+const OrderTrackingScreen = ({navigation}) => {
   return (
     <View>
       <FontAwesomeIcon
@@ -43,7 +43,9 @@ const OrderTrackingScreen = () => {
           </View>
           <View style={styles.other}>
             <Text>Rating this Restuarant</Text>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => {
+          navigation.navigate("feedback")
+        }}>
               <Text>Rate Choose Kigali</Text>
             </TouchableOpacity>
             <Text style={styles.textGrey}>2022-04-30 13:11:34</Text>

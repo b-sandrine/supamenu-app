@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const DrinkScreen = () => {
+const DrinkScreen = ({navigation}) => {
   return (
     <View>
       <FontAwesomeIcon
@@ -112,7 +112,9 @@ const DrinkScreen = () => {
           16 000 RWF
         </Text>
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+          navigation.navigate("checkout credit")
+        }}>
         Proceed to checkout
       </TouchableOpacity>
     </View>

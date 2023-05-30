@@ -4,7 +4,7 @@ const { width, height } = Dimensions.get("window");
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const PaymentSuccessScreen = () => {
+const PaymentSuccessScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
         <Image 
@@ -16,11 +16,15 @@ const PaymentSuccessScreen = () => {
         <Text style={styles.black}>we will send order details and invoice in</Text>
         <Text style={styles.black}>your contact no and registered email</Text>
       </View>
-      <View style={styles.iconContainer}>
-        <Text style={{color: '#F08F5F', marginRight: 30}}>Check Details</Text>
+      <View style={styles.iconContainer} >
+        <Text style={{color: '#F08F5F', marginRight: 30}} onPress={() => {
+          navigation.navigate("order details")
+        }}>Check Details</Text>
         <FontAwesomeIcon icon={faArrowRight} size={20} style={{color: '#F08F5F'}} />
       </View>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={() => {
+          navigation.navigate("order tracking")
+        }}>
         <Text style={styles.black}>Download Invoice</Text>
       </TouchableOpacity>
       <Text style={styles.text}>

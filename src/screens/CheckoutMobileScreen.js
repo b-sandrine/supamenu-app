@@ -12,7 +12,7 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 
-const CheckoutMobileScreen = () => {
+const CheckoutMobileScreen = ({navigation}) => {
   return (
     <View>
       <View style={styles.header}>
@@ -63,7 +63,9 @@ const CheckoutMobileScreen = () => {
         We will send you an order details to your email after the successfull
         payment
       </Text>
-      <TouchableOpacity style={styles.payment}>
+      <TouchableOpacity style={styles.payment} onPress={() => {
+          navigation.navigate("payment success")
+        }}>
         <FontAwesomeIcon
           icon={faLock}
           size={15}

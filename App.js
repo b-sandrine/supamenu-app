@@ -35,11 +35,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="order tracking" component={OrderTrackingScreen} />
-        <Stack.Screen name="order details" component={OrderDetailScreen} />
-        <Stack.Screen name="checkout mobile" component={CheckoutMobileScreen} />
-        <Stack.Screen name="checkout credit" component={CheckoutCreditScreen} />
-        <Stack.Screen name="drinks" component={DrinkScreen} />
         <Stack.Screen name="sign in" component={SigninScreen} />
         <Stack.Screen name="sign up" component={SignupScreen} />
         <Stack.Screen name="dashboard" component={HomeScreen} />
@@ -49,6 +44,11 @@ export default function App() {
         <Stack.Screen name="payment success" component={PaymentSuccessScreen} />
         <Stack.Screen name="menuScreen" component={MenuScreen} />
         <Stack.Screen name="menu ordered" component={MenuOrderedScreen} />
+        <Stack.Screen name="order tracking" component={OrderTrackingScreen} />
+        <Stack.Screen name="order details" component={OrderDetailScreen} />
+        <Stack.Screen name="checkout mobile" component={CheckoutMobileScreen} />
+        <Stack.Screen name="checkout credit" component={CheckoutCreditScreen} />
+        <Stack.Screen name="drinks" component={DrinkScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

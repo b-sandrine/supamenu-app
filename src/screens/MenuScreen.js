@@ -6,7 +6,7 @@ import React from "react";
 
 const { width, height } = Dimensions.get("window");
 
-const MenuScreen = () => {
+const MenuScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.white}>Choose Kigali</Text>
@@ -95,8 +95,10 @@ const MenuScreen = () => {
             style={styles.icon}
           />
         </View>
-        <View style={styles.iconContainerMod}>
-          <Text style={styles.black}>Drink</Text>
+        <View style={styles.iconContainerMod} >
+          <Text style={styles.black} onPress={() => {
+          navigation.navigate("drinks")
+        }}>Drink</Text>
           <FontAwesomeIcon
             icon={faChevronRight}
             size={10}

@@ -12,7 +12,7 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 
-const CheckoutCreditScreen = () => {
+const CheckoutCreditScreen = ({ navigation }) => {
   return (
     <View>
       <View style={styles.header}>
@@ -36,7 +36,14 @@ const CheckoutCreditScreen = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ margin: 20 }}>
-            <Text style={{ fontWeight: "bold" }}>Mobile & Cash</Text>
+            <Text
+              style={{ fontWeight: "bold" }}
+              onPress={() => {
+                navigation.navigate("checkout mobile");
+              }}
+            >
+              Mobile & Cash
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -53,22 +60,41 @@ const CheckoutCreditScreen = () => {
           <View>
             <Text style={styles.label}>Expiry date</Text>
             <TextInput
-              placeholder="Enter the expiry date" style={styles.input0}
+              placeholder="Enter the expiry date"
+              style={styles.input0}
             />
           </View>
           <View>
             <Text style={styles.label}>CVV/CVC</Text>
-            <TextInput placeholder="Enter CVV/CVC" style={styles.input0}  />
+            <TextInput placeholder="Enter CVV/CVC" style={styles.input0} />
           </View>
         </View>
       </View>
-      <Text style={{textAlign: 'center',width: 300, marginLeft: 'auto', marginRight: 'auto', marginTop: 20, marginBottom: 20, color: '#B1B1B1', }}>
+      <Text
+        style={{
+          textAlign: "center",
+          width: 300,
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: 20,
+          marginBottom: 20,
+          color: "#B1B1B1",
+        }}
+      >
         We will send you an order details to your email after the successfull
         payment
       </Text>
-      <TouchableOpacity style={styles.payment}>
-        <FontAwesomeIcon icon={faLock} size={15} style={{ margin: 10, color: "#fff" }}/>
-        <Text style={{ color: "#fff", fontWeight: "bold" }}>Pay for the order</Text>
+      <TouchableOpacity style={styles.payment} onPress={() => {
+          navigation.navigate("payment success")
+        }}>
+        <FontAwesomeIcon
+          icon={faLock}
+          size={15}
+          style={{ margin: 10, color: "#fff" }}
+        />
+        <Text style={{ color: "#fff", fontWeight: "bold" }}>
+          Pay for the order
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -145,11 +171,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#25D482",
     borderRadius: 20,
     alignItems: "center",
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 300,
     height: 60,
-    margin: 'auto'
-  }
+    margin: "auto",
+  },
 });
 
 export default CheckoutCreditScreen;
