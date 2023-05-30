@@ -14,6 +14,7 @@ import DrinkScreen from "./src/screens/DrinkScreen";
 import CheckoutCreditScreen from "./src/screens/CheckoutCreditScreen";
 import CheckoutMobileScreen from "./src/screens/CheckoutMobileScreen";
 import OrderDetailScreen from "./src/screens/OrderDetailScreen";
+import OrderTrackingScreen from "./src/screens/OrderTracking";
 
 import { useEffect, useState } from "react";
 
@@ -34,6 +35,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="order tracking" component={OrderTrackingScreen} />
         <Stack.Screen name="order details" component={OrderDetailScreen} />
         <Stack.Screen name="checkout mobile" component={CheckoutMobileScreen} />
         <Stack.Screen name="checkout credit" component={CheckoutCreditScreen} />
