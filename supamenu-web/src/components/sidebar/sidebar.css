@@ -1,0 +1,41 @@
+.sidebar--container {
+  position: absolute;
+  width: 292px;
+  height: 378px;
+  left: 285px;
+  top: 125px;
+  padding: 20px;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #dfe0eb;
+  border-radius: 10px;
+}
+
+.sidebar--container h3 {
+    width: 200px;
+    margin: 10px 60px;
+}
+
+.sidebar--container .sample--elements {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.sidebar--container .sample--elements .single--element {
+    display: flex;
+    margin: 10px 0;
+}
+
+.sidebar--container .sample--elements .single--element .number {
+    background: #C5C7CD;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 8px;
+    margin-right: 50px;
+ }
