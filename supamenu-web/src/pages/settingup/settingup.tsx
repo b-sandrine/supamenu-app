@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar/sidebar";
 import Restaurantinfo1 from "../../components/RestaurantInformation/page1/restaurantinfo";
 import Restaurantinfo2 from "../../components/RestaurantInformation/page2/restaurantinfo";
+import Restaurantinfo3 from "../../components/RestaurantInformation/page3/restaurantinfo";
 
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
 import { useState } from "react";
@@ -24,6 +25,7 @@ const settingup = () => {
 
       {count === 1 && <Restaurantinfo1 />}
       {count === 2 && <Restaurantinfo2 />}
+      {count === 3 && <Restaurantinfo3 />}
       <div className="footer">
         <button className="left" onClick={prevPage}>
           <FaAngleLeft />
