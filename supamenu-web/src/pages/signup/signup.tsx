@@ -1,6 +1,10 @@
 import "./signup.css";
 import logo from "../../assets/SupaMenu1.png";
+import { useNavigate } from "react-router";
+
 const Signup = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="signup--container">
       <div className="logo--container">
@@ -29,10 +33,10 @@ const Signup = () => {
           <input type="password" name="" id="" placeholder="Password" />
         </div>
         <div className="form--component">
-          <input type="submit" name="" id="" value="Sign Up" />
+          <input type="submit" name="" id="" value="Sign Up" onClick={() => navigate('/login')}/>
         </div>
         <p>
-          Already have an account? <span>Login</span>
+          Already have an account? <span onClick={() => navigate('/login')}>Login</span>
         </p>
       </div>
     </div>

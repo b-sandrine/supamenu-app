@@ -3,8 +3,10 @@ import logo from "../../assets/SupaMenu2.png";
 import user from "../../assets/Registration.png";
 import food from "../../assets/Food.png";
 import orderhistory from '../../assets/Order History.png'
+import { useNavigate } from "react-router";
 
-const welcome = () => {
+const Welcome = () => {
+  const navigate = useNavigate();
   return (
     <div className="welcome--container">
       <div className="header">
@@ -12,8 +14,8 @@ const welcome = () => {
         <div className="header--content">
           <h1>Register your restaurant on SupaMenu</h1>
           <p>for free and get more revenue</p>
-          <button>Register your Restaurant</button>
-          <button>Restaurant already registered? Sign In</button>
+          <button onClick={()=>navigate('/signup')}>Register your Restaurant</button>
+          <button onClick={()=>navigate('/login')}>Restaurant already registered? Sign In</button>
         </div>
       </div>
       <div className="details">
@@ -40,4 +42,4 @@ const welcome = () => {
   );
 };
 
-export default welcome;
+export default Welcome;

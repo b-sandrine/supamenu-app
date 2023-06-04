@@ -7,16 +7,23 @@ import Restaurantinfo3 from "../../components/RestaurantInformation/page3/restau
 
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const settingup = () => {
+const Settingup = () => {
+    const navigate = useNavigate();
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [count, setCount ] = useState(1);
-
     const nextPage = () => {
         setCount(count +1 )
+        if(count + 1 > 3) {
+            navigate('/dashboard')
+        }
     }
     const prevPage = () => {
         setCount(count - 1)
+        if(1-count < 1) {
+            navigate('/login')
+        }
     }
   return (
     <div className="settingup--container">
@@ -40,4 +47,4 @@ const settingup = () => {
   );
 };
 
-export default settingup;
+export default Settingup;

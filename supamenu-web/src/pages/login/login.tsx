@@ -1,6 +1,8 @@
 import "./login.css";
 import logo from "../../assets/SupaMenu1.png";
-const login = () => {
+import { useNavigate } from "react-router";
+const Login = () => {
+  const navigate = useNavigate();
   return (
     <div className="login--container">
       <div className="logo--container">
@@ -19,10 +21,10 @@ const login = () => {
           <input type="password" name="" id="" placeholder="Password" />
         </div>
         <div className="form--component">
-          <input type="submit" name="" id="" value="Log In" />
+          <input type="submit" name="" id="" value="Log In" onClick={() => navigate('/setting-up')}/>
         </div>
         <p>
-          Don't have an account? <span>Sign Up</span>
+          Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
         </p>
         <p>
           Forgot your password? <span>RESET</span>
@@ -32,4 +34,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
