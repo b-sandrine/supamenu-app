@@ -1,6 +1,6 @@
 import "./sidebar.css";
 
-const sidebar = () => {
+const sidebar1 = () => {
   return (
     <div className="sidebar--container">
       <h3>1. Create your restaurant profile</h3>
@@ -33,4 +33,4 @@ const sidebar = () => {
   );
 };
 
-export default sidebar;
+export default sidebar1;

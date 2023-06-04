@@ -1,0 +1,41 @@
+.sidebar2--container {
+  position: absolute;
+  width: 255px;
+  height: 722px;
+  left: 0px;
+  top: 0px;
+  background: #000000;
+  padding: 50px 0px 0 20px;
+  color: #fff;
+}
+
+.sidebar2--container img {
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+
+.sidebar2--container .links--container {
+    height: 600px;
+}
+
+.sidebar2--container .links--container .upper--links {
+    height: 300px;
+}
+
+.sidebar2--container .links--container .lower--links {
+    position: absolute;
+    bottom: 15px;
+}
+
+.sidebar2--container .links--container .single--link {
+    height: 50px;
+    padding: 0px 20px;
+    color: #A4A6B3;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.sidebar2--container .links--container .single--link p {
+    margin-left: 20px;
+}

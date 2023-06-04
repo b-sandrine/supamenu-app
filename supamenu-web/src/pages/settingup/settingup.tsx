@@ -1,6 +1,6 @@
 import "./settingup.css";
 import Navbar from "../../components/navbar/navbar";
-import Sidebar from "../../components/sidebar/sidebar";
+import Sidebar from "../../components/sidebar1/sidebar1";
 import Restaurantinfo1 from "../../components/RestaurantInformation/page1/restaurantinfo";
 import Restaurantinfo2 from "../../components/RestaurantInformation/page2/restaurantinfo";
 import Restaurantinfo3 from "../../components/RestaurantInformation/page3/restaurantinfo";

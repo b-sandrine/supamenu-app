@@ -1,0 +1,6 @@
+.dashboard--container .content {
+    position: absolute;
+    left: 300px;
+    width: 80%;
+    margin: 30px 0;
+}

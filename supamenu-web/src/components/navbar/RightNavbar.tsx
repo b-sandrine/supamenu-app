@@ -1,7 +1,7 @@
 import { FiSearch } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
 import profile from "../../assets/profile.png";
-
+import './navbar.css'
 
 const RightNavbar = () => {
   return (
