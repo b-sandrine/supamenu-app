@@ -1,0 +1,42 @@
+.settingup--container .footer {
+  position: absolute;
+  width: 100%;
+  padding: 30px 200px;
+  bottom: 0;
+  height: 100px;
+  border: 1px solid #EBEDF0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.settingup--container .footer button {
+    width: 157px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+}
+
+.settingup--container .footer button.left p {
+    margin-left: 10px;
+}
+
+.settingup--container .footer button.right p {
+    margin-right: 10px;
+}
+
+.settingup--container .footer button.left {
+    background-color: white;
+    border: 1px solid #F7941D;
+    color: #F7941D;
+}
+
+.settingup--container .footer button.right {
+    background-color: #F7941D;
+    color: white;
+}
