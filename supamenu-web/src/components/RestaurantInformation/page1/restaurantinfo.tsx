@@ -1,5 +1,5 @@
 import "./restaurantinfo.css";
-const restaurantinfo = () => {
+const restaurantinfo1 = () => {
   return (
     <div className="restuarantinfo--container">
       <div className="form">
@@ -37,4 +37,4 @@ const restaurantinfo = () => {
   );
 };
 
-export default restaurantinfo;
+export default restaurantinfo1;
