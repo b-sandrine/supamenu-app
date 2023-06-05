@@ -5,7 +5,7 @@ import './navbar.css'
 
 const RightNavbar = () => {
   return (
-    <>
+    <div className="rightnavbar">
       <div className="icons">
         <FiSearch className="icon" />
         <IoMdNotifications className="icon" />
@@ -14,7 +14,7 @@ const RightNavbar = () => {
         <p>Jacques Kagabo</p>
         <img src={profile} alt="User profile" />
       </div>
-    </>
+    </div>
   );
 };
 

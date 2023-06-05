@@ -11,23 +11,28 @@
     width: 70%;
 }
 
-.navbar--container .icons {
-    width: 10%;
-    border-right: 2px solid black;
+.rightnavbar {
+    display: flex;
 }
 
-.navbar--container .icons .icon {
+.icons {
+    width: 10%;
+    border-right: 2px solid black;
+    display: flex;
+}
+
+.icons .icon {
     margin: 0 20px;
     font-size: 25px;
 }
 
-.navbar--container .userProfile {
+.userProfile {
     display: flex;
     align-items: center;
     margin-left: 30px;
 }
 
-.navbar--container .userProfile p {
+.userProfile p {
     font-weight: bold;
     margin-right: 20px;
 }

@@ -1,6 +1,137 @@
 .dashboard--container .content {
-    position: absolute;
-    left: 300px;
-    width: 80%;
-    margin: 30px 0;
+  position: absolute;
+  left: 300px;
+  width: 80%;
+  margin: 30px 0 0 0;
+}
+
+.dashboard--container .content .orders {
+  display: flex;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #dfe0eb;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.dashboard--container .content .orders .time {
+  width: 13%;
+  margin: 20px;
+}
+
+.dashboard--container .content .orders .time h3 {
+  color: #252733;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.dashboard--container .content .orders .time p {
+  color: #9fa2b4;
+  font-size: 12px;
+}
+
+.dashboard--container .content .orders .overview {
+  width: 48%;
+  margin: 20px;
+}
+
+.dashboard--container .content .orders .overview button {
+  width: 25%;
+  height: 50px;
+  background: #ffffff;
+  border: 0.25px solid #c5c7cd;
+  border-radius: 16px;
+  color: #f7941d;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+
+.dashboard--container .content .orders .overview button.active {
+  line-height: 21px;
+  border: none;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  background-color: #f7941d;
+}
+
+.dashboard--container .content .orders .orders--details {
+  height: auto;
+}
+
+.dashboard--container .content .orders .orders--details .single--order {
+  display: flex;
+  background: #f8f8fb;
+  border-radius: 16px;
+  width: 100%;
+  padding: 15px;
+}
+
+.dashboard--container .content .orders .orders--details .number {
+  width: 15%;
+  padding-top: 15px;
+  color: #f7941d;
+  font-weight: bold;
+}
+
+.dashboard--container .content .orders .orders--details .order--details {
+  width: 60%;
+  margin: 0 20px 0 0;
+  color: #363636;
+}
+
+.dashboard--container .content .orders .orders--details .pricings {
+  width: 15%;
+}
+
+.dashboard--container .content .orders .orders--details .pricings h3 {
+  color: #f08f5f;
+}
+
+.dashboard--container .content .orders .table {
+  display: flex;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.dashboard--container .content .orders .table h4 {
+  margin: 0 5px;
+}
+
+.dashboard--container .content .orders .table .icon {
+  color: #f08f5f;
+}
+
+.single--order {
+  margin: 10px 0;
+}
+
+.dashboard--container .content .orders .more--info {
+  width: 25%;
+  position: absolute;
+  right: 0;
+}
+
+.dashboard--container .content .orders .more--info .single--item {
+  border-left: 1px solid #dfe0eb;
+  border-bottom: 1px solid #dfe0eb;
+  height: 129.2px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.dashboard--container .content .orders .more--info .single--item h4 {
+  letter-spacing: 0.3px;
+  color: #9fa2b4;
+  margin: 5px;
+}
+
+.dashboard--container .content .orders .more--info .single--item p {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.3px;
+  color: #252733;
 }
