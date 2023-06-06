@@ -4,7 +4,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-} from "react-native-web";
+} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 

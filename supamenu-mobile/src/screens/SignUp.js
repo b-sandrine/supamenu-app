@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text, Dimensions } from "react-native";
-import { TouchableOpacity, TextInput } from "react-native-web";
+import { TouchableOpacity, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 

@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { TextInput } from "react-native-web";
+import { TextInput } from "react-native";
 import React from "react";
 
 const { width, height } = Dimensions.get("window");
@@ -12,36 +12,20 @@ const MenuScreen = ({navigation}) => {
       <Text style={styles.white}>Choose Kigali</Text>
       <View style={styles.iconContainer}>
         <View
-          style={{
-            margin: 30,
-            textAlign: "left",
-            alignItems: "left",
-            justifyContent: "center",
-          }}
+          style={styles.div1}
         >
           <Image
             source={require("../../assets/tableImage.png")}
-            style={{ width: 40, height: 36, marginBottom: 10 }}
+            style={styles.image1}
           />
           <TextInput
             multiline
             placeholder="Enter table Number"
-            style={{
-              color: "white",
-              width: 80,
-              height: 40,
-              textAlignVertical: "top",
-              outlineStyle: 'none'
-            }}
+            style={styles.input1}
           ></TextInput>
         </View>
         <View
-          style={{
-            borderLeftWidth: 1,
-            borderLeftColor: "#F7941D",
-            height: 70,
-            marginTop: 28,
-          }}
+          style={styles.div2}
         ></View>
         <View
           style={{
@@ -151,6 +135,25 @@ const styles = StyleSheet.create({
     left: width - 190,
     top: 4,
   },
+  div1: {
+    margin: 30,
+    textAlign: "left",
+    alignItems: "left",
+    justifyContent: "center",
+  },
+  div2: {
+    borderLeftWidth: 1,
+    borderLeftColor: "#F7941D",
+    height: 70,
+    marginTop: 28,
+  },
+  input1: {
+    color: "white",
+    width: 80,
+    height: 40,
+    textAlignVertical: "top",
+  },
+  image1 : { width: 40, height: 36, marginBottom: 10 }
 });
 
 export default MenuScreen;

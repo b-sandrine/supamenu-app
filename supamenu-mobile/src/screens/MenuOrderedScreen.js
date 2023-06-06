@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { TextInput } from "react-native-web";
+import { TextInput } from "react-native";
 import React from "react";
 
 const { width, height } = Dimensions.get("window");

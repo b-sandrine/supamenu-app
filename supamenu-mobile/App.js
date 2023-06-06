@@ -28,9 +28,9 @@ export default function App() {
     }, 5000);
   }, []);
 
-  // if (isLoading) {
-  //   return <LoadingScreen />;
-  // }
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <NavigationContainer>

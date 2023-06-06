@@ -4,7 +4,7 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
-} from "react-native-web";
+} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faAngleLeft,

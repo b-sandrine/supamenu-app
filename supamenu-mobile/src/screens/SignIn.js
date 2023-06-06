@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
-import { TouchableOpacity, TextInput } from "react-native-web";
+import { TouchableOpacity, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
@@ -69,9 +69,9 @@ const SigninScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#F7941D",
-    height: height,
     width: width,
     textAlign: "center",
+    overflow: 'scroll',
   },
   form: {
     backgroundColor: "#fff",
