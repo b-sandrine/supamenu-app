@@ -1,8 +1,31 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./login.css";
 import logo from "../../assets/SupaMenu1.png";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleOnChange = (event: any) => {
+    setUser({...user, [event.target.name]: event.target.value})
+  }
+
+  const handleOnSubmit = () => {
+    axios.post('http://localhost:2000/user/login', user)
+    .then(res => { 
+      console.log(res)
+      navigate('/setting-up')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   return (
     <div className="login--container">
       <div className="logo--container">
@@ -14,14 +37,26 @@ const Login = () => {
         <p style={{marginBottom: '30px'}}>Enter your email and password below</p>
        <div className="form--component">
           <label>EMAIL</label>
-          <input type="email" name="" id="" placeholder="Email address" />
+          <input 
+            type="email" 
+            name="email" 
+            id="" 
+            value={user.email}
+            onChange={handleOnChange}
+            placeholder="Email address" />
         </div>
         <div className="form--component">
           <label>PASSWORD</label>
-          <input type="password" name="" id="" placeholder="Password" />
+          <input
+            type="password" 
+            name="password" 
+            id="" 
+            value={user.password}
+            onChange={handleOnChange}
+            placeholder="Password" />
         </div>
         <div className="form--component">
-          <input type="submit" name="" id="" value="Log In" onClick={() => navigate('/setting-up')}/>
+          <input type="submit" name="" id="" value="Log In" onClick={handleOnSubmit}/>
         </div>
         <p>
           Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
