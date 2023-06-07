@@ -5,7 +5,9 @@ import Sidebar from "../../components/Sidebar/sidebar";
 import RightNavbar from "../../components/navbar/RightNavbar";
 import { MdOutlineHorizontalRule } from "react-icons/md";
 
-const dashboard = () => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const dashboard = (token: any) => {
+  console.log(token)
   return (
     <div className="dashboard--container">
       <Sidebar />

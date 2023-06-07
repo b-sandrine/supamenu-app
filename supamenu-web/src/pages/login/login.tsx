@@ -4,7 +4,8 @@ import logo from "../../assets/SupaMenu1.png";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import axios from "axios";
-const Login = () => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Login = ({setToken}: any) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -20,6 +21,7 @@ const Login = () => {
     axios.post('http://localhost:2000/user/login', user)
     .then(res => { 
       console.log(res)
+      setToken(res.data.token)
       navigate('/setting-up')
     })
     .catch(err => {
