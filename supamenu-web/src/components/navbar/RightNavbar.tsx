@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FiSearch } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
 import profile from "../../assets/profile.png";
 import './navbar.css'
 
-const RightNavbar = () => {
+const RightNavbar = (userData: any) => {
+  console.log(userData)
+
   return (
     <div className="rightnavbar">
       <div className="icons">
@@ -11,7 +14,7 @@ const RightNavbar = () => {
         <IoMdNotifications className="icon" />
       </div>
       <div className="userProfile">
-        <p>Jacques Kagabo</p>
+        <p>{userData.email}</p>
         <img src={profile} alt="User profile" />
       </div>
     </div>

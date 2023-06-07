@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./settingup.css";
 import Navbar from "../../components/navbar/navbar";
 import Sidebar from "../../components/sidebar1/sidebar1";
@@ -6,10 +7,12 @@ import Restaurantinfo2 from "../../components/RestaurantInformation/page2/restau
 import Restaurantinfo3 from "../../components/RestaurantInformation/page3/restaurantinfo";
 
 import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 const Settingup = (token: any) => {
+  const [userProfile, setUserProfile] = useState(null);
+
     const navigate = useNavigate();
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [count, setCount ] = useState(1);
@@ -25,14 +28,45 @@ const Settingup = (token: any) => {
             navigate('/login')
         }
     }
+
+    useEffect(() => {
+      const fetchUserProfile = async() => {
+        try {
+          const response = await fetch("http://localhost:2000/user/findUser", {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${token.token}`,
+            },
+          });
+
+          if(response.ok) {
+            const data = await response.json();
+            setUserProfile(data)
+          }
+          else {
+            console.error('User not found')
+          }
+        }
+        catch(err) {
+          console.log("Error while fetching user profile", err)
+        }
+      }
+      fetchUserProfile()
+    },[token, userProfile])
   return (
     <div className="settingup--container">
-      <Navbar />
+      <Navbar  userData = {userProfile}/>
       <Sidebar />
 
-      {count === 1 && <Restaurantinfo1 />}
-      {count === 2 && <Restaurantinfo2 />}
-      {count === 3 && <Restaurantinfo3 />}
+      {userProfile ? (
+        <div>
+          {count === 1 && <Restaurantinfo1/>}
+          {count === 2 && <Restaurantinfo2 />}
+          {count === 3 && <Restaurantinfo3 />}
+        </div>
+      ) : (
+        <div><p>Loading profile ...</p></div>
+      )}
       <div className="footer">
         <button className="left" onClick={prevPage}>
           <FaAngleLeft />
