@@ -13,6 +13,7 @@ const Signup = () => {
     password: "",
   });
 
+  const [error, setError] = useState("");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onValueChange = (event: any) => {
     setUser({...user, [event.target.name ]: event.target.value})
@@ -27,6 +28,7 @@ const Signup = () => {
     })
     .catch(err => {
       console.log(err)
+      setError("All fields are required")
     })
   }
 
@@ -92,6 +94,7 @@ const Signup = () => {
             placeholder="Password"
           />
         </div>
+        {error && <p className="error">{error}</p>}
         <div className="form--component">
           <input
             type="submit"

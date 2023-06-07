@@ -10,6 +10,7 @@ const Login = () => {
     email: "",
     password: ""
   })
+  const [error, setError] = useState("") 
 
   const handleOnChange = (event: any) => {
     setUser({...user, [event.target.name]: event.target.value})
@@ -22,7 +23,8 @@ const Login = () => {
       navigate('/setting-up')
     })
     .catch(err => {
-      console.log(err)
+      console.log(err.message)
+      setError("Invalid email or password")
     })
   }
 
@@ -55,6 +57,7 @@ const Login = () => {
             onChange={handleOnChange}
             placeholder="Password" />
         </div>
+        {error && <p className="error">{error}</p>}
         <div className="form--component">
           <input type="submit" name="" id="" value="Log In" onClick={handleOnSubmit}/>
         </div>
