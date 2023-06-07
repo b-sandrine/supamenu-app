@@ -9,7 +9,7 @@ import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const Settingup = () => {
+const Settingup = (token: any) => {
     const navigate = useNavigate();
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [count, setCount ] = useState(1);
