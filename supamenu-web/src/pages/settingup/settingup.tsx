@@ -39,20 +39,22 @@ const Settingup = (token: any) => {
             },
           });
 
-          if(response.ok) {
-            const data = await response.json();
-            setUserProfile(data)
-          }
-          else {
-            console.error('User not found')
-          }
+          setTimeout(async ()=> {
+            if(response.ok) {
+              const data = await response.json();
+              setUserProfile(data)
+            }
+            else {
+              console.error('User not found')
+            }
+          },2000)
         }
         catch(err) {
           console.log("Error while fetching user profile", err)
         }
       }
       fetchUserProfile()
-    },[token, userProfile])
+    },[token])
   return (
     <div className="settingup--container">
       <Navbar  userData = {userProfile}/>

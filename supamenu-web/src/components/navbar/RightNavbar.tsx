@@ -4,8 +4,8 @@ import { IoMdNotifications } from "react-icons/io";
 import profile from "../../assets/profile.png";
 import './navbar.css'
 
-const RightNavbar = (userData: any) => {
-  console.log(userData)
+// eslint-disable-next-line @typescript-eslint/ban-types
+const RightNavbar = (names: any) => {
 
   return (
     <div className="rightnavbar">
@@ -14,7 +14,7 @@ const RightNavbar = (userData: any) => {
         <IoMdNotifications className="icon" />
       </div>
       <div className="userProfile">
-        <p>{userData.email}</p>
+        <p>{names}</p>
         <img src={profile} alt="User profile" />
       </div>
     </div>
